@@ -58,7 +58,7 @@ pushd `pwd` > /dev/null
 if [ $ROS_VERSION = ${VERSION_ROS1} ]; then
     cd ../../  # 需要到workspace根目录，不是src目录
     # 将 catkin_make 替换为 catkin build
-    catkin build --cmake-args -DROS_EDITION=${VERSION_ROS1}
+    catkin build livox_ros_driver2 --cmake-args -DROS_EDITION=${VERSION_ROS1}
 elif [ $ROS_VERSION = ${VERSION_ROS2} ]; then
     cd ../../  # 需要到workspace根目录，不是src目录
     colcon build --cmake-args -DROS_EDITION=${VERSION_ROS2} -DHUMBLE_ROS=${ROS_HUMBLE}
