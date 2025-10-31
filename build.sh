@@ -27,11 +27,11 @@ echo "ROS version is: "$ROS_VERSION
 
 # clear `build/` folder.
 # 注意：catkin build 使用不同的目录结构，需要清理相应目录
-rm -rf ../../../build/
-rm -rf ../../../devel/
-rm -rf ../../../install/
+rm -rf ../../build/
+rm -rf ../../devel/
+rm -rf ../../install/
 # 如果使用catkin build，还需要清理.catkin_tools目录
-rm -rf ../../../.catkin_tools/
+rm -rf ../../.catkin_tools/
 # clear src/CMakeLists.txt if it exists.
 if [ -f ../CMakeLists.txt ]; then
     rm -f ../CMakeLists.txt
@@ -56,11 +56,11 @@ fi
 # build
 pushd `pwd` > /dev/null
 if [ $ROS_VERSION = ${VERSION_ROS1} ]; then
-    cd ../../../  # 需要到workspace根目录，不是src目录
+    cd ../../  # 需要到workspace根目录，不是src目录
     # 将 catkin_make 替换为 catkin build
     catkin build --cmake-args -DROS_EDITION=${VERSION_ROS1}
 elif [ $ROS_VERSION = ${VERSION_ROS2} ]; then
-    cd ../../../  # 需要到workspace根目录，不是src目录
+    cd ../../  # 需要到workspace根目录，不是src目录
     colcon build --cmake-args -DROS_EDITION=${VERSION_ROS2} -DHUMBLE_ROS=${ROS_HUMBLE}
 fi
 popd > /dev/null
